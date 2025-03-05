@@ -1,0 +1,106 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ECommerce.Pages.Checkout"
+             Title="Checkout"
+             BackgroundColor="#f4f4f4">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <!-- 🔹 Header -->
+        <Label Text="Checkout"
+               TextColor="#1a1a1a"
+               FontSize="22"
+               FontFamily="PoppinsMedium"
+               HorizontalOptions="Center"
+               Margin="0,10,0,15"/>
+
+        <!-- 🔹 Cart Items List -->
+        <ScrollView>
+            <VerticalStackLayout Spacing="10">
+                <ListView ItemsSource="{Binding CartItems}"
+                          HasUnevenRows="True"
+                          SeparatorVisibility="None"
+                          BackgroundColor="White">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="10" CornerRadius="10" BackgroundColor="White" BorderColor="#e0e0e0">
+                                    <Grid ColumnDefinitions="Auto, *, Auto" Padding="5">
+
+                                        <!-- Product Image -->
+                                        <Image Source="{Binding Image}"
+                                           HeightRequest="60"
+                                           WidthRequest="60"
+                                           Aspect="AspectFill"
+                                           BackgroundColor="#F5F5F5"
+                                           Grid.Column="0"/>
+
+                                        <!-- Product Details -->
+                                        <VerticalStackLayout VerticalOptions="Center" Spacing="2" Grid.Column="1">
+                                            <Label Text="{Binding Name}"
+                                                   FontSize="16"
+                                                   FontFamily="PoppinsRegular"
+                                                   TextColor="#1a1a1a"
+                                                   Margin="10,0,0,0"/>
+                                            <Label Text="{Binding Price, StringFormat='P{0:N2}'}"
+                                                   FontSize="14"
+                                                   FontFamily="PoppinsLight"
+                                                   TextColor="#d4af37"
+                                                   Margin="10,0,0,0"/>
+                                        </VerticalStackLayout>
+
+                                        <!-- Quantity (Aligned Right) -->
+                                        <HorizontalStackLayout Spacing="5"
+                                                    VerticalOptions="Center"
+                                                    Grid.Column="2">
+                                            <Label Text="Qty: " 
+                                                    FontSize="14"
+                                                    FontFamily="PoppinsRegular"
+                                                    TextColor="Black"/>
+                                            <Label Text="{Binding Quantity}" 
+                                                    FontSize="14" 
+                                                    FontFamily="PoppinsLight"
+                                                    TextColor="Black"/>
+                                        </HorizontalStackLayout>
+
+                                    </Grid>
+                                </Frame>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- 🔹 Payment Method -->
+        <Label Text="Select Payment Method:"
+               TextColor="Black"
+               FontSize="16"
+               FontFamily="PoppinsMedium"
+               Margin="0,15,0,5"/>
+        <Picker ItemsSource="{Binding PaymentMethods}"
+                SelectedItem="{Binding SelectedPaymentMethod}"
+                Title="Choose a payment method"
+                TextColor="Black"/>
+
+        <!-- 🔹 Total Price -->
+        <Label Text="{Binding TotalPrice, StringFormat='Total: P{0:N2}'}"
+               FontSize="18"
+               TextColor="#1a1a1a"
+               FontFamily="PoppinsMedium"
+               HorizontalOptions="End"
+               Margin="0,10,0,20"/>
+
+        <!-- 🔹 Checkout Button -->
+        <Button Text="Proceed to Checkout"
+                Clicked="OnCheckoutClicked"
+                BackgroundColor="#d4af37"
+                TextColor="#1a1a1a"
+                FontSize="16"
+                FontFamily="PoppinsMedium"
+                CornerRadius="10"
+                HeightRequest="50"
+                Padding="0,3,0,0"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,99 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ECommerce.Pages.Products"
+             Title="Products"
+             BackgroundColor="#f4f4f4">
+    <Grid RowDefinitions="Auto, *, Auto">
+
+        <!-- Main Content -->
+        <VerticalStackLayout Grid.Row="1" Padding="20">
+
+            <!-- Page Title -->
+            <Label Text="Available Products"
+                   TextColor="#000000"
+                   FontSize="24"
+                   FontFamily="PoppinsMedium"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,15"/>
+
+            <!-- Category Dropdown -->
+            <Picker x:Name="CategoryPicker"
+                    Title="Select Category"
+                    ItemsSource="{Binding CategoryList}"
+                    SelectedItem="{Binding SelectedCategory, Mode=TwoWay}"
+                    FontSize="16"
+                    TextColor="#1a1a1a"
+                    BackgroundColor="#f4f4f4"
+                    Margin="0,0,0,15"/>
+
+            <!-- Products List -->
+            <CollectionView ItemsSource="{Binding FilteredProductList}"
+                            HeightRequest="500">
+                <!-- Adjust height as needed -->
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="2" Padding="10" CornerRadius="10" HasShadow="False" BorderColor="#e0e0e0" BackgroundColor="Transparent">
+                            <VerticalStackLayout Spacing="5">
+
+                                <!-- Product Image -->
+                                <Image Source="{Binding Image}"
+                                       Aspect="AspectFill"
+                                       HeightRequest="150"
+                                       WidthRequest="150"
+                                       HorizontalOptions="Center"/>
+
+                                <!-- Product Name -->
+                                <Label Text="{Binding Name}"
+                                       FontSize="18"
+                                       FontFamily="PoppinsMedium"
+                                       TextColor="#1a1a1a"
+                                       Margin="0,0,0,-8"
+                                       HorizontalOptions="Start"/>
+
+                                <!-- Product Price -->
+                                <Label Text="{Binding Price}"
+                                       FontSize="14"
+                                       TextColor="#d4af37"
+                                       FontFamily="PoppinsLight"
+                                       HorizontalOptions="Start"/>
+
+                                <!-- View Details Button -->
+                                <Button Text="View Details"
+                                        BackgroundColor="#d4af37"
+                                        TextColor="#1a1a1a"
+                                        FontFamily="PoppinsRegular"
+                                        CornerRadius="5"
+                                        Clicked="OnViewDetails"
+                                        Command="{Binding ViewDetailsCommand}"
+                                        Padding="0,3,0,0"
+                                        CommandParameter="{Binding}"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+        <!-- 🔹 Bottom Navigation Bar -->
+        <Grid Grid.Row="2" BackgroundColor="#d4af37" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ImageButton Source="home.png" HeightRequest="24"
+                         WidthRequest="24" BackgroundColor="Transparent" Clicked="OnHomeClicked" Grid.Column="0"/>
+            <ImageButton Source="cart.png" HeightRequest="24"
+                         WidthRequest="24" BackgroundColor="Transparent" Clicked="OnCartClicked" Grid.Column="1"/>
+            <ImageButton  Source="profile.png" HeightRequest="24"
+                         WidthRequest="24" BackgroundColor="Transparent" Clicked="OnAccountClicked" Grid.Column="2"/>
+        </Grid>
+
+    </Grid>
+</ContentPage>

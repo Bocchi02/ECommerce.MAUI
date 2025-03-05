@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ECommerce.Pages.LoginPage"
+             Title="Login"
+             BackgroundColor="#ffffff">
+
+    <VerticalStackLayout Padding="24" Spacing="20" VerticalOptions="Center">
+
+        <!-- App Title -->
+        <Label Text="Sign In"
+               FontSize="32"
+               FontFamily="PoppinsMedium"
+               TextColor="#000000"
+               Margin="0,0,0,0"
+               HorizontalOptions="Center" />
+
+        <Label Text="Hi! Welcome back, you've been missed"
+           FontSize="14"
+           FontFamily="PoppinsLight"
+           TextColor="#1a1a1a"
+           Margin="0,-20,0,20"
+           HorizontalOptions="Center" />
+
+        <!-- Email Label -->
+        <Label Text="Email"
+           FontSize="16"
+           TextColor="#000000"
+           Margin="5,0,0,-15"/>
+
+        <!-- Username Entry with Rounded Corners -->
+        <Frame CornerRadius="30" BackgroundColor="#e0e0e0" HasShadow="False" BorderColor="#1a1a1a">
+            <!-- Email Entry -->
+            <Entry x:Name="EmailEntry"
+               Placeholder="xxxxxx@example.com"
+               Keyboard="Email"
+               BackgroundColor="Transparent"
+               TextColor="Black"
+               HeightRequest="35"
+               Margin="0,-10,0,-15"/>
+        </Frame>
+
+        <!-- Password Label -->
+        <Label Text="Password"
+        FontSize="16"
+        TextColor="Black"
+        Margin="5,0,0,-15"/>
+        <!-- Password Entry with Rounded Corners -->
+        <Frame CornerRadius="30" BackgroundColor="#e0e0e0" HasShadow="False" BorderColor="#1a1a1a">
+            <Entry x:Name="PasswordEntry"
+               Placeholder="●●●●●●●●●●●●●●●●"
+               IsPassword="True"
+               BackgroundColor="Transparent"
+               TextColor="Black"
+               HeightRequest="35"
+               Margin="0,-10,0,-15"/>
+        </Frame>
+
+        <Label Text="Forgot Password?"
+        TextColor="#d4af47"
+        FontSize="14"
+        FontFamily="PoppinsLight"
+        HorizontalOptions="End">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- Login Button -->
+        <Button Text="Sign In"
+                FontSize="18"
+                BackgroundColor="#d4af47"
+                TextColor="#ffffff"
+                FontFamily="PoppinsRegular"
+                HeightRequest="45"
+                CornerRadius="30"
+                Padding="0,3,0,0"
+                Clicked="OnLoginClicked" />
+
+        <!-- Forgot Password / Register -->
+        <HorizontalStackLayout HorizontalOptions="Center">
+
+            <Label Text=" Don't have an account? " FontSize="14" TextColor="#1a1a1a" FontFamily="PoppinsLight"/>
+
+            <Label Text="Sign Up"
+                   TextColor="#d4af47"
+                   FontSize="14"
+                   FontFamily="PoppinsLight">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Label.GestureRecognizers>
+            </Label>
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

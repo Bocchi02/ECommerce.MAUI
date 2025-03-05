@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ECommerce.Pages.HomePage"
+             BackgroundColor="#f4f4f4"
+             Title="Home">
+
+    <Grid RowDefinitions="Auto, *, Auto">
+
+        <!-- 🔹 Header -->
+        <StackLayout Padding="0,20,0,10" BackgroundColor="#1a1a1a">
+            <Label Text="Welcome to UniShop!"
+                   FontSize="22"
+                   FontFamily="PoppinsMedium"
+                   TextColor="#d4af37"
+                   HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20">
+
+                <!-- 🔹 Banner Image -->
+                <Image Source="dotnet_bot.png"
+                       HeightRequest="180"
+                       Aspect="AspectFill"
+                       HorizontalOptions="Fill"/>
+                <Button Text="Shop Now!" BackgroundColor="#d4af37" FontFamily="PoppinsMedium" Clicked="OnProductsClicked" CornerRadius="10" Padding="0,3,0,0" HorizontalOptions="Fill"/>
+
+                <!-- 🔹 Featured Products Section -->
+                <Label Text="Featured Products"
+                       FontSize="20"
+                       FontFamily="PoppinsMedium"
+                       TextColor="#000000"
+                       Margin="0,20,0,10"/>
+
+                <!-- 🔹 CarouselView for Products -->
+                <CarouselView ItemsSource="{Binding FeaturedProducts}"
+                              HeightRequest="200"
+                              IndicatorView="productIndicator"
+                              HorizontalOptions="Fill">
+
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="10" BorderColor="#e0e0e0" CornerRadius="10" WidthRequest="150" Margin="5"  BackgroundColor="Transparent">
+                                <VerticalStackLayout>
+                                    <Image Source="{Binding Image}" HeightRequest="100" Aspect="AspectFit" Margin="0,0,0,-5"/>
+                                    <Label Text="{Binding Name}" FontSize="16" FontFamily="PoppinsMedium" TextColor="Black" Margin="0,0,0,-5"/>
+                                    <Label Text="{Binding Price}" FontSize="12" FontFamily="PoppinsRegular" TextColor="#d4af37" Margin="0,0,0,5"/>
+                                    <Button Text="Add to Cart" FontSize="10" TextColor="#1a1a1a" FontFamily="PoppinsMedium" BackgroundColor="#d4af37" CornerRadius="10" HeightRequest="30"/>
+                                </VerticalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <!-- 🔹 Dots Indicator for Carousel -->
+                <IndicatorView x:Name="productIndicator" HorizontalOptions="Center"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- 🔹 Bottom Navigation Bar -->
+        <Grid Grid.Row="2" BackgroundColor="#d4af37" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ImageButton Source="home.png" HeightRequest="24"
+             WidthRequest="24" BackgroundColor="Transparent" Grid.Column="0"/>
+            <ImageButton Source="cart.png" HeightRequest="24"
+             WidthRequest="24" BackgroundColor="Transparent" Clicked="OnCartClicked" Grid.Column="1"/>
+            <ImageButton Source="profile.png" HeightRequest="24"
+             WidthRequest="24" BackgroundColor="Transparent" Clicked="OnAccountClicked" Grid.Column="2"/>
+        </Grid>
+    </Grid>
+</ContentPage>

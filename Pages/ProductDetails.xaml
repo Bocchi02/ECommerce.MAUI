@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ECommerce.Pages.ProductDetails"
+             Title="Product Details"
+             BackgroundColor="#f4f4f4">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Product Image -->
+            <Frame CornerRadius="10" Padding="0" HasShadow="False" BorderColor="#e0e0e0" BackgroundColor="Transparent">
+                <Image Source="{Binding Image}" 
+                       Aspect="AspectFill" 
+                       HeightRequest="250" 
+                       HorizontalOptions="Fill"
+                       />
+            </Frame>
+
+            <!-- Product Name -->
+            <Label Text="{Binding Name}"
+                   FontSize="32"
+                   FontFamily="PoppinsMedium"
+                   TextColor="#1a1a1a"
+                   Margin="0,0,0,-20"
+                   HorizontalOptions="Start"/>
+
+            <!-- Product Price -->
+            <Label Text="{Binding Price}"
+                   FontSize="18"
+                   TextColor="#d4af37"
+                   FontFamily="PoppinsMedium"
+                   Margin="0,0,0,20"
+                   HorizontalOptions="Start"/>
+
+            <!-- Product Description -->
+            <Label Text="Product Description"
+                   FontSize="20"
+                   TextColor="#1a1a1a"
+                   FontFamily="PoppinsMedium"/>
+            <Label Text="{Binding Description}"
+                   FontSize="16"
+                   TextColor="Gray"
+                   FontFamily="PoppinsLight"
+                   HorizontalOptions="Start"
+                   HorizontalTextAlignment="Center"/>
+
+            <!-- Buy Now & Add to Cart Buttons -->
+            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <HorizontalStackLayout Spacing="5">
+                    <Button Text="Add to Cart"
+                BackgroundColor="#d4af37"
+                TextColor="#1a1a1a"
+                FontSize="16"
+                FontFamily="PoppinsMedium"
+                CornerRadius="5"
+                WidthRequest="155"
+                Padding="0,3,0,0"
+                Command="{Binding AddToCartCommand}" />
+
+                    <Button Text="Buy Now"
+                BackgroundColor="#1a1a1a"
+                TextColor="#d4af37"
+                FontSize="16"
+                FontFamily="PoppinsMedium"
+                CornerRadius="5"
+                WidthRequest="155"
+                 Padding="0,3,0,0"
+                Command="{Binding BuyNowCommand}" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

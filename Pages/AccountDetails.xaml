@@ -1,0 +1,63 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ECommerce.Pages.AccountDetails"
+             Title="Account Details"
+             BackgroundColor="#F5F5F5">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <!-- 🔹 Profile Section -->
+        <Frame Padding="20" CornerRadius="15" BackgroundColor="White" HasShadow="False">
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Image Source="emo_dinsil.png"
+                       HeightRequest="100"
+                       WidthRequest="100"
+                       Aspect="AspectFill"
+                       BackgroundColor="#E0E0E0"
+                       />
+
+                <Label Text="{Binding FullName}"
+                       FontSize="20"
+                       FontFamily="PoppinsMedium"
+                       TextColor="#1a1a1a"
+                       Margin="0,0,0,-15"
+                       HorizontalOptions="Center"/>
+
+                <Label Text="{Binding Email}"
+                       FontSize="14"
+                       FontFamily="PoppinsRegular"
+                       TextColor="Gray"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- 🔹 Account Details -->
+        <Frame Padding="15" CornerRadius="10" BackgroundColor="White" HasShadow="False">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Account Information" FontSize="16" FontFamily="PoppinsMedium" TextColor="Black"/>
+
+                <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto" ColumnSpacing="10" RowSpacing="10">
+                    <Label Text="Phone:" FontSize="14" TextColor="Gray" FontFamily="PoppinsLight" Grid.Row="0" Grid.Column="0"/>
+                    <Label Text="{Binding Phone}" FontSize="14" TextColor="Black" FontFamily="PoppinsRegular" Grid.Row="0" Grid.Column="1"/>
+
+                    <Label Text="Address:" FontSize="14" TextColor="Gray" FontFamily="PoppinsLight" Grid.Row="1" Grid.Column="0"/>
+                    <Label Text="{Binding Address}" FontSize="14" TextColor="Black" FontFamily="PoppinsRegular" Grid.Row="1" Grid.Column="1"/>
+
+                    <Label Text="Joined:" FontSize="14" TextColor="Gray" FontFamily="PoppinsLight" Grid.Row="2" Grid.Column="0"/>
+                    <Label Text="{Binding JoinedDate, StringFormat='{0:MMMM dd, yyyy}'}"
+                           FontSize="14" TextColor="Black" FontFamily="PoppinsRegular" Grid.Row="2" Grid.Column="1"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- 🔹 Edit & Logout Buttons -->
+        <Button Text="Edit Account" FontFamily="PoppinsRegular" Clicked="OnEditClicked"
+                BackgroundColor="#d4af37" TextColor="#1a1a1a" Padding="0,3,0,0"
+                CornerRadius="10" FontSize="16"/>
+
+        <Button Text="Logout" FontFamily="PoppinsRegular" Clicked="OnLogoutClicked"
+                BackgroundColor="#1a1a1a" TextColor="#d4af37" Padding="0,3,0,0"
+                CornerRadius="10" FontSize="16"/>
+    </VerticalStackLayout>
+
+</ContentPage>
