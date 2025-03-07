@@ -41,7 +41,7 @@ namespace ECommerce.Pages
         public Checkout(ObservableCollection<CartItem> cartItems)
         {
             InitializeComponent();
-            BindingContext = this; // ? Set before modifying properties
+            BindingContext = this;
 
             // ? Assign actual cart items
             foreach (var item in cartItems)
@@ -85,6 +85,7 @@ namespace ECommerce.Pages
                 await DisplayAlert("Success", "Your order has been placed!", "OK");
                 CartItems.Clear();
                 UpdateTotalPrice();
+                await Navigation.PushAsync(new HomePage());
             }
         }
     }

@@ -9,7 +9,7 @@
         <!-- 🔹 Header -->
         <Label Text="Checkout"
                TextColor="#1a1a1a"
-               FontSize="22"
+               FontSize="28"
                FontFamily="PoppinsMedium"
                HorizontalOptions="Center"
                Margin="0,10,0,15"/>
@@ -20,7 +20,7 @@
                 <ListView ItemsSource="{Binding CartItems}"
                           HasUnevenRows="True"
                           SeparatorVisibility="None"
-                          BackgroundColor="White">
+                          BackgroundColor="Transparent">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -42,7 +42,7 @@
                                                    FontFamily="PoppinsRegular"
                                                    TextColor="#1a1a1a"
                                                    Margin="10,0,0,0"/>
-                                            <Label Text="{Binding Price, StringFormat='P{0:N2}'}"
+                                            <Label Text="{Binding Price, StringFormat='₱{0:N2}'}"
                                                    FontSize="14"
                                                    FontFamily="PoppinsLight"
                                                    TextColor="#d4af37"
@@ -85,12 +85,12 @@
                 TextColor="Black"/>
 
         <!-- 🔹 Total Price -->
-        <Label Text="{Binding TotalPrice, StringFormat='Total: P{0:N2}'}"
+        <Label Text="{Binding TotalPrice, StringFormat='Total: ₱{0:N2}'}"
                FontSize="18"
                TextColor="#1a1a1a"
                FontFamily="PoppinsMedium"
                HorizontalOptions="End"
-               Margin="0,10,0,20"/>
+               Margin="0,10,0,0"/>
 
         <!-- 🔹 Checkout Button -->
         <Button Text="Proceed to Checkout"

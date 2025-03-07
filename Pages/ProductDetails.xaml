@@ -20,17 +20,25 @@
             <!-- Product Name -->
             <Label Text="{Binding Name}"
                    FontSize="32"
-                   FontFamily="PoppinsMedium"
+                   FontFamily="PoppinsSemiBold"
                    TextColor="#1a1a1a"
                    Margin="0,0,0,-20"
                    HorizontalOptions="Start"/>
 
             <!-- Product Price -->
-            <Label Text="{Binding Price}"
-                   FontSize="18"
+            <Label Text="{Binding Price, StringFormat='₱{0:N2}'}"
+                   FontSize="16"
                    TextColor="#d4af37"
-                   FontFamily="PoppinsMedium"
-                   Margin="0,0,0,20"
+                   FontFamily="PoppinsRegular"
+                   Margin="0,0,0,-15"
+                   HorizontalOptions="Start"/>
+            
+            <!-- Product Stock-->
+            <Label Text="{Binding Stock, StringFormat='Stock: {0}'}"
+                   FontSize="12"
+                   TextColor="#1a1a1a"
+                   FontFamily="PoppinsRegular"
+                   Margin="0,0,0,15"
                    HorizontalOptions="Start"/>
 
             <!-- Product Description -->
@@ -39,11 +47,12 @@
                    TextColor="#1a1a1a"
                    FontFamily="PoppinsMedium"/>
             <Label Text="{Binding Description}"
-                   FontSize="16"
+                   FontSize="14"
                    TextColor="Gray"
                    FontFamily="PoppinsLight"
+                   Margin="0,-10,0,0"
                    HorizontalOptions="Start"
-                   HorizontalTextAlignment="Center"/>
+                   HorizontalTextAlignment="Start"/>
 
             <!-- Buy Now & Add to Cart Buttons -->
             <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">

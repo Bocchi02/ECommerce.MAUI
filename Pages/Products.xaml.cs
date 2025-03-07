@@ -32,12 +32,12 @@ namespace ECommerce.Pages
             // Define Product List with Categories
             ProductList = new ObservableCollection<Product>
 {
-                new Product { Name = "Laptop", Category = "Electronics", Price = "P45,000", Image = "dotnet_bot.png", Description = "High-performance laptop with the latest processor and long battery life." },
-                new Product { Name = "Smartphone", Category = "Electronics", Price = "P25,000", Image = "dotnet_bot.png", Description = "Sleek and powerful smartphone with an advanced camera and fast charging." },
-                new Product { Name = "Headphones", Category = "Accessories", Price = "P3,500", Image = "dotnet_bot.png", Description = "Noise-canceling headphones with crystal-clear sound and deep bass." },
-                new Product { Name = "Smartwatch", Category = "Accessories", Price = "P8,000", Image = "dotnet_bot.png", Description = "Feature-packed smartwatch with fitness tracking and call notifications." },
-                new Product { Name = "Shoes", Category = "Fashion", Price = "P2,000", Image = "dotnet_bot.png", Description = "Comfortable and stylish shoes perfect for casual or athletic wear." },
-                new Product { Name = "Backpack", Category = "Fashion", Price = "P1,500", Image = "dotnet_bot.png", Description = "Durable and spacious backpack ideal for school, work, or travel." }
+                new Product { Name = "Laptop", Category = "Electronics", Price = 45000, Stock = 12, Image = "dotnet_bot.png", Description = "High-performance laptop with the latest processor and long battery life." },
+                new Product { Name = "Smartphone", Category = "Electronics", Price = 25000, Stock = 10, Image = "dotnet_bot.png", Description = "Sleek and powerful smartphone with an advanced camera and fast charging." },
+                new Product { Name = "Headphones", Category = "Accessories", Price = 35000, Stock = 20, Image = "dotnet_bot.png", Description = "Noise-canceling headphones with crystal-clear sound and deep bass." },
+                new Product { Name = "Smartwatch", Category = "Accessories", Price = 8000, Stock = 30, Image = "dotnet_bot.png", Description = "Feature-packed smartwatch with fitness tracking and call notifications." },
+                new Product { Name = "Shoes", Category = "Fashion", Price = 2000, Stock = 15, Image = "dotnet_bot.png", Description = "Comfortable and stylish shoes perfect for casual or athletic wear." },
+                new Product { Name = "Backpack", Category = "Fashion", Price = 1500, Stock = 18, Image = "dotnet_bot.png", Description = "Durable and spacious backpack ideal for school, work, or travel." }
             };
 
 

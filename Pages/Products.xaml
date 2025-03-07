@@ -55,7 +55,7 @@
                                        HorizontalOptions="Start"/>
 
                                 <!-- Product Price -->
-                                <Label Text="{Binding Price}"
+                                <Label Text="{Binding Price, StringFormat='₱{0:N2}'}"
                                        FontSize="14"
                                        TextColor="#d4af37"
                                        FontFamily="PoppinsLight"

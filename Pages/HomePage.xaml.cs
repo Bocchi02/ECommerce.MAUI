@@ -14,9 +14,9 @@ namespace ECommerce.Pages
             // Sample Data
             FeaturedProducts = new ObservableCollection<Product>
             {
-                new Product { Name = "Laptop", Price = "P45,000", Image = "dotnet_bot.png" },
-                new Product { Name = "Smartphone", Price = "P25,000", Image = "dotnet_bot.png" },
-                new Product { Name = "Headphones", Price = "P3,500", Image = "dotnet_bot.png" }
+                new Product { Name = "Laptop", Price = 45000, Image = "dotnet_bot.png" },
+                new Product { Name = "Smartphone", Price = 25000, Image = "dotnet_bot.png" },
+                new Product { Name = "Headphones", Price = 3500, Image = "dotnet_bot.png" }
             };
 
             BindingContext = this;
